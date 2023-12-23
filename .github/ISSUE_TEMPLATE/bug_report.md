@@ -3,7 +3,7 @@ name: Bug report
 about: Create a bug report to help me analyse the reported bug
 title: ''
 labels: ''
-assignees: ''
+assignees: BasPennings
 
 ---
 
