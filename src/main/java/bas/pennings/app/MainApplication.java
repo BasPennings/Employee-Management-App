@@ -22,7 +22,6 @@ public class MainApplication extends Application {
         currentStage = stage;
 
         createStage(SceneView.LoginScene);
-//        switchScene(SceneView.CreateAccountScene);
     }
 
     public static void main(String[] args) {
@@ -33,11 +32,15 @@ public class MainApplication extends Application {
      * Displays the given scene on the currently opened stage.
      * @param sceneView The scene to be displayed.
      * */
-    public static void displayScene(SceneView sceneView) throws IOException {
-        StackPane stackPane = new StackPane();
-        stackPane.getChildren().clear();
-        stackPane.getChildren().add(new FXMLLoader(MainApplication.class.getResource(sceneView.FxmlFileName)).load());
-        currentStage.setScene(new Scene(stackPane, sceneView.width, sceneView.height));
+    public static void displayScene(SceneView sceneView) {
+        try {
+            StackPane stackPane = new StackPane();
+            stackPane.getChildren().clear();
+            stackPane.getChildren().add(new FXMLLoader(MainApplication.class.getResource(sceneView.FxmlFileName)).load());
+            currentStage.setScene(new Scene(stackPane, sceneView.width, sceneView.height));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
