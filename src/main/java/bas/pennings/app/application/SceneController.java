@@ -2,6 +2,7 @@ package bas.pennings.app.application;
 
 import bas.pennings.app.Job;
 import bas.pennings.app.MainApplication;
+import bas.pennings.app.StorageManager;
 import bas.pennings.app.UserAccount;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -19,12 +20,14 @@ public class SceneController {
     @FXML private PasswordField repeatPasswordField;
     @FXML private TextField ageField;
     @FXML private TextField emailField;
+
     @FXML private Text invalidAge;
     @FXML private Text invalidEmail;
     @FXML private Text noPasswordMatch;
+    @FXML private Text invalidPassword;
     @FXML private Text incorrectUsernameOrPassword1;
     @FXML private Text incorrectUsernameOrPassword2;
-
+    @FXML private Text usernameAlreadyInUse;
     @FXML protected void onLoginSubmit() {
         UserAccount userAccount = MainApplication.getUserAccount(usernameField.getText(), passwordField.getText());
         if (userAccount != null && Objects.equals(userAccount.password, passwordField.getText())) {
@@ -37,18 +40,30 @@ public class SceneController {
     }
 
     @FXML protected void onAccountCreateSubmit() {
-        if (!Objects.equals(passwordField.getText(), repeatPasswordField.getText()))
-            noPasswordMatch.setVisible(true); // Incorrect password
+        int age;
+        try {
+            age = Integer.parseInt(ageField.getText());
+        } catch (Exception e) {
+            return;
+        }
 
-        if (!(Integer.getInteger(ageField.getText()) >= 12))
-            invalidAge.setVisible(true); // Age does contain string or is smaller than 12
+        // Get the feedback field of the representative input field if it's condition is met.
+         Object feedbackField = !Objects.equals(passwordField.getText(), repeatPasswordField.getText()) ? noPasswordMatch // No repeat password match
+                : age < 12 ? invalidAge // Underage
+                : !emailField.getText().contains("@") ? invalidEmail // Invalid email address
+                : emailField.getText().length() < 5 ? invalidPassword // Too short password
+                : MainApplication.doesUsernameExist(usernameField.getText()) ? usernameAlreadyInUse // Name already in use
+                : null;
 
-        if (!emailField.getText().contains("@"))
-            invalidEmail.setVisible(true); // Incorrect email
+         // Invoke the setVisible method to make the feedback field visible, if there is one.
+        if (feedbackField != null) try {
+            feedbackField.getClass().getMethod("setVisible", boolean.class).invoke(feedbackField, true);
+            return;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-        if (passwordField != repeatPasswordField)
-            noPasswordMatch.setVisible(true); // Incorrect email
-
+        // Create the user account when all account requirements are met
         MainApplication.createUserAccount(new UserAccount(
                 usernameField.getText(),
                 Integer.parseInt(ageField.getText()),

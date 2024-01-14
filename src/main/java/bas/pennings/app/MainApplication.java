@@ -61,4 +61,8 @@ public class MainApplication extends Application {
     public static UserAccount getUserAccount(String userAccountName, String userAccountPassword) {
         return storageManager.getUserAccount(userAccountName, userAccountPassword);
     }
+
+    public static boolean doesUsernameExist(String name) {
+        return storageManager.doesUsernameExist(name);
+    }
 }

@@ -85,4 +85,8 @@ public class StorageManager {
             e.printStackTrace();
         }
     }
+
+    public boolean doesUsernameExist(String name) {
+        return userAccounts.containsKey(name);
+    }
 }
