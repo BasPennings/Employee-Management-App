@@ -23,42 +23,42 @@
       <AnchorPane prefHeight="500.0" prefWidth="415.0" BorderPane.alignment="CENTER">
          <TextField fx:id="usernameField" layoutX="128.0" layoutY="142.0" prefWidth="153.0" promptText="Username" style="-fx-background-color: transparent; -fx-border-color: #0598FF; -fx-border-width: 0 0 2px 0;" />
          <PasswordField fx:id="passwordField" layoutX="81.0" layoutY="260.0" prefHeight="28.0" prefWidth="200.0" promptText="Password" style="-fx-background-color: transparent; -fx-border-color: #0598FF; -fx-border-width: 0 0 2px 0;" />
-         <Button layoutX="128.0" layoutY="394.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="108.0" style="-fx-background-color: #0598FF;" text="Create Account" textFill="WHITE" />
+         <Button layoutX="128.0" layoutY="394.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="108.0" style="-fx-background-color: #0598FF;" onAction="#onAccountCreateSubmit" text="Create Account" textFill="WHITE" />
          <Hyperlink layoutX="163.0" layoutY="445.0" onMouseClicked="#switchToLoginScene" text="Login" textFill="#0598ff" />
-         <Text fill="#0598ff" layoutX="113.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create Account">
+         <Text fill="#0598ff" layoutX="113.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create Account" style="-fx-cursor: hand;">
             <font>
                <Font size="20.0" />
             </font>
          </Text>
-         <Button layoutX="324.0" layoutY="9.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="X" textFill="#0598ff">
+         <Button onMouseClicked="#closeApplication" layoutX="324.0" layoutY="9.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-cursor: hand;" text="X" textFill="#0598ff">
             <font>
                <Font name="System Bold" size="15.0" />
             </font>
          </Button>
-         <Text fill="#0598ff" layoutX="86.0" layoutY="299.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password must contain at least 5 characters">
+         <Text fx:id="invalidPassword" fill="#0598ff" layoutX="86.0" layoutY="299.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password must contain at least 5 characters" visible="false">
             <font>
                <Font size="10.0" />
             </font>
          </Text>
          <TextField fx:id="ageField" alignment="CENTER" layoutX="81.0" layoutY="142.0" prefHeight="28.0" prefWidth="36.0" promptText="Age" style="-fx-background-color: transparent; -fx-border-color: #0598FF; -fx-border-width: 0 0 2px 0;" />
          <PasswordField fx:id="repeatPasswordField" layoutX="81.0" layoutY="319.0" prefHeight="28.0" prefWidth="200.0" promptText="Repeat password" style="-fx-background-color: transparent; -fx-border-color: #0598FF; -fx-border-width: 0 0 2px 0;" />
-         <Text fx:id="noPasswordMatch" fill="#0598ff" layoutX="85.0" layoutY="358.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Passwords do not match">
+         <Text fx:id="noPasswordMatch" fill="#0598ff" layoutX="85.0" layoutY="358.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Passwords do not match" visible="false">
             <font>
                <Font size="10.0" />
             </font>
          </Text>
-         <Text fx:id="usernameAlreadyInUse" fill="#0598ff" layoutX="85.0" layoutY="181.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username already in use">
+         <Text fx:id="usernameAlreadyInUse" fill="#0598ff" layoutX="85.0" layoutY="181.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username already in use" visible="false">
             <font>
                <Font size="10.0" />
             </font>
          </Text>
-         <Text fx:id="invalidAge" fill="#0598ff" layoutX="85.0" layoutY="181.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Age must be 12 years or older">
+         <Text fx:id="invalidAge" fill="#0598ff" layoutX="85.0" layoutY="181.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Age must be 12 years or older" visible="false">
             <font>
                <Font size="10.0" />
             </font>
          </Text>
          <TextField fx:id="emailField" layoutX="81.0" layoutY="201.0" prefHeight="28.0" prefWidth="200.0" promptText="Email address" style="-fx-background-color: transparent; -fx-border-color: #0598FF; -fx-border-width: 0 0 2px 0;" />
-         <Text fx:id="invalidEmail" fill="#0598ff" layoutX="82.0" layoutY="242.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Invalid email address">
+         <Text fx:id="invalidEmail" fill="#0598ff" layoutX="82.0" layoutY="242.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Invalid email address" visible="false">
             <font>
                <Font size="10.0" />
             </font>

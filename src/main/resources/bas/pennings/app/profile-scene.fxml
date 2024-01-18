@@ -28,14 +28,14 @@
          <PasswordField fx:id="passwordField" layoutX="99.0" layoutY="256.0" promptText="Password"
                         style="-fx-background-color: transparent; -fx-border-color: #0598FF; -fx-border-width: 0 0 2px 0;"/>
          <Button layoutX="139.0" layoutY="331.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="69.0"
-                 style="-fx-background-color: #0598FF; -fx-cursor: hand;" text="Login" textFill="WHITE" onAction="#onLoginSubmit"/>
+                 style="-fx-background-color: #0598FF;" text="Login" textFill="WHITE" onAction="#onLoginSubmit"/>
          <Hyperlink layoutX="113.0" layoutY="445.0" text="Create a new account" onMouseClicked="#switchToCreateAccountScene" textFill="#0598ff"/>
          <Text fill="#0598ff" layoutX="127.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Login">
             <font>
                <Font size="20.0"/>
             </font>
          </Text>
-         <Button onMouseClicked="#closeApplication" layoutX="324.0" layoutY="9.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-cursor: hand;"
+         <Button layoutX="324.0" layoutY="9.0" mnemonicParsing="false" style="-fx-background-color: transparent;"
                  text="X" textFill="#0598ff">
             <font>
                <Font name="System Bold" size="15.0"/>

@@ -4,6 +4,8 @@ module bas.pennings.app {
             
         requires org.controlsfx.controls;
     requires com.fasterxml.jackson.databind;
+    requires lombok;
+    requires javafx.graphics;
 
     opens bas.pennings.app to javafx.fxml;
     exports bas.pennings.app;
